@@ -25,7 +25,7 @@ export class AppComponent {
   }
 
   initiateStyleOnClick(): void {
-    $(document).on('click', "[routerLink='/home']", function () {
+    $(document).on('click', "[routerLink='/home'], .home", function () {
       document.querySelector(".text").classList.add("spaced");
     });
   }
