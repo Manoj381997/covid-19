@@ -1,0 +1,37 @@
+#footer {
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+    height: 110px;
+}
+ 
+ .img {
+     background-color: red;
+     width: 5px;
+ }
+ 
+ a {
+     text-decoration: none;
+     opacity: 0.8;
+ }
+
+ #footer{
+    position: absolute;
+    background-color: whitesmoke;
+    width: 100%;
+    color: black;
+    font-family: 'Karla', sans-serif;
+  }
+
+#footer p, .logo {
+    padding-top: 15px;
+}
+
+ #footer a:hover {
+    color: rgb(22, 245, 226);
+    cursor: pointer;
+  }
+
+.text-success {
+    color: green;
+}

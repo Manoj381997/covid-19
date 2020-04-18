@@ -1,0 +1,29 @@
+.corona {
+    height: 100%;
+    width: 100%;
+}
+
+#symptoms, #prevention {
+    margin-top: 120px;
+}
+
+#prevention {
+    margin-bottom: 50px;
+}
+
+.card { 
+    background-color: #eee;
+    border: none;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-footer { 
+    opacity: 1;
+    border: none;
+    background-color: #eee;
+    text-align: center;
+    color: black;
+}

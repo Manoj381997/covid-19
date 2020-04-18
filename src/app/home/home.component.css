@@ -1,0 +1,136 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700';
+@import "https://fonts.googleapis.com/css?family=Sen&display=swap";
+
+#social {
+  background-color: #1abc9c;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
+}
+
+.text {
+  font-size: 40px;
+  transition: 2s all;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#social > p {
+  text-align: center;
+  font-size: 17px;
+}
+
+.spaced {
+  letter-spacing: 20px;
+}
+
+.icons {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.advice {
+    margin: 1rem;
+    transition: 0.5s all;
+    text-align: center;
+    animation: anim 2s forwards;
+}
+
+h3 {
+  font-size: 15px;
+}
+
+.fas {
+    font-size: 30px;
+    animation: anim 2s forwards;
+}
+
+@keyframes anim {
+  to {
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .spaced {
+    letter-spacing: 8px;
+  }
+}
+
+.table,
+.table-footer {
+    background-color: white;
+    font-weight: small;
+    padding: 0%;
+    border-spacing: 0 0;
+    border-collapse: initial;
+}
+
+tr:hover {
+    opacity: 0.9;
+}
+
+td {
+    font-weight: normal;
+    font-size: 12px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+th {
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0.6;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+th:hover {
+    opacity: 1;
+}
+
+h5 {
+    margin:auto;
+    padding: 40px 0 0 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.table-responsive {
+  max-height: 490px;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width:500px) {
+
+  .text {
+    /* margin-top: -30px; */
+    font-size: 20px;
+    transition: 2s all;
+  }
+
+  #social > p {
+      font-size: 12px;
+  }
+
+  .advice {
+    margin-top: -40px;
+    font-size: 8px;
+  }
+
+  .fas {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 340px) , screen and (max-height: 600px) {
+  .text {
+    font-size: 20px;
+    transition: 2s all;
+    margin-top: 80px;
+  }
+}

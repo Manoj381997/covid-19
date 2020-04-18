@@ -1,0 +1,188 @@
+<section id="social" class="josefin-font">
+    <h1 class="text">
+        Social Distancing
+      </h1>
+      <p>
+        Help prevent the spread of Coronavirus <i class="fas fa-virus"></i> by
+        maintaining at least 1m (3ft) between you and others.
+      </p>
+      <div class="icons">
+        <span class="advice shake">
+          <i class="fas fa-handshake-alt-slash fa-2x"></i>
+          <h3>Avoid physical contact</h3>
+        </span>
+        <span class="advice wash">
+          <i class="fas fa-hands-wash fa-2x"></i>
+          <h3>Wash your hands</h3>
+        </span>
+        <span class="advice mask">
+          <i class="fas fa-head-side-mask fa-2x"></i>
+          <h3>Use mask</h3>
+        </span>
+      </div>
+</section>
+
+<section class="container-fluid" *ngIf="!flags.isError">
+
+    <h5 class="info-text josefin-font">SHOWING RESULTS FOR ALL COUNTRIES</h5>
+
+    <!--Overview Section-->
+    <section id="overview">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-xl-3 col-md-3 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="small font-weight-bold text-info text-uppercase">Total Cases</div>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <div class="loading-text" *ngIf="!flags.isWorldDataLoaded">Loading...</div>
+                                            <div *ngIf="flags.isWorldDataLoaded">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ worldData['world_total']['total_cases'] }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-users fa-2x text-info"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-3 mb-4">
+                    <div class="card border-left-danger shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="small font-weight-bold text-danger text-uppercase mb-1">Total Death</div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <div class="loading-text" *ngIf="!flags.isWorldDataLoaded">Loading...</div>
+                                            <div *ngIf="flags.isWorldDataLoaded">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                    {{ worldData['world_total']['total_deaths'] }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-bed fa-2x text-danger"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-3 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="small font-weight-bold text-success text-uppercase mb-1">Total Recovered</div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <div class="loading-text" *ngIf="!flags.isWorldDataLoaded">Loading...</div>
+                                            <div *ngIf="flags.isWorldDataLoaded">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                    {{ worldData['world_total']['total_recovered'] }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-child fa-2x text-success"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-3 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="small font-weight-bold text-warning text-uppercase mb-1">New Cases</div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <div class="loading-text" *ngIf="!flags.isWorldDataLoaded">Loading...</div>
+                                            <div *ngIf="flags.isWorldDataLoaded">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ worldData['world_total']['new_cases'] }}</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-bell fa-2x text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table section -->
+    <div id='table' class="container">
+        <div class="card shadow mb-4" id="table-card">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header text-center">
+                <h6 class="m-0 josefin-font text-info">Confirmed Cases and Deaths by Country, Territory, or Conveyance</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body table-responsive">
+                <table class="table table-hover table-fixed">
+                    <thead style="background-color: white;">
+                        <tr>
+                            <th scope="col">Country</th>
+                            <th scope="col">Total Cases</th>
+                            <th scope="col">Total Deaths</th>
+                            <th scope="col">New Cases</th>
+                            <th scope="col">New Deaths</th>
+                            <th scope="col">Total Recovered</th>
+                            <th scope="col">Active Cases</th>
+                            <th scope="col">Serious Or Critical</th>
+                            <th scope="col">Tot Cases / 1M Pop</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let country of countriesList; let i=index;">
+                        <tr>
+                            <td style="font-size: 11px;" class="font-weight-bold josefin-font">{{country['country_name']}}</td>
+                            <td>{{country['cases']}}</td>
+                            <td>{{country['deaths']}}</td>
+                            <td>{{country['new_cases']}}</td>
+                            <td>{{country['new_deaths']}}</td>
+                            <td>{{country['total_recovered']}}</td>
+                            <td>{{country['active_cases']}}</td>
+                            <td>{{country['serious_critical']}}</td>
+                            <td>{{country['total_cases_per_1m_population']}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Error Handling -->
+<section class="container-fluid" *ngIf="flags.isError">
+    <div class="error-container">
+        <div class="row">
+            <div class="col-12 col-md-4 offset-md-4">
+                <img src="assets/images/bug2.png" class="img-fluid" alt="Image Not Found">
+                <div class="josefin-font text-center">
+                    <h2>A problem has occured!!</h2>
+                    <p>Sorry for the inconvenience. Please try again later</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

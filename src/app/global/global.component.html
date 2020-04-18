@@ -1,0 +1,160 @@
+<section id="dropdown">
+    <div class="dropdowncontainer">
+        <div class="label">
+            <h6 class="info-text josefin-font">SHOWING RESULTS FOR {{isSelected | uppercase}}</h6>
+        </div>
+        <form class="form-inline">
+                <h5 style="padding-right: 10px;" for="exampleFormControl1">Location</h5>
+                <select class="form-control raleway-font" name="country" id="exampleFormControl1" [(ngModel)]="isSelected" (change)="onChangeCountry()">
+                    <option>All Countries</option>
+                    <option *ngFor="let country of countriesData">{{country['country_name']}}</option>
+                </select>
+        </form>
+    </div>  
+</section>
+
+<section class="container-fluid" *ngIf="!flags.isError">
+    <!--Overview Section-->
+    <section id="overview">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-xl-3 col-md-3 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="small font-weight-bold text-info text-uppercase">Total Cases</div>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <div class="loading-text" *ngIf="!flags.isWorldDataLoaded">Loading...</div>
+                                            <div *ngIf="flags.isWorldDataLoaded">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ data.confirmed }}
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-users fa-2x text-info"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-3 mb-4">
+                    <div class="card border-left-danger shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="small font-weight-bold text-danger text-uppercase mb-1">Total Death</div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <div class="loading-text" *ngIf="!flags.isWorldDataLoaded">Loading...</div>
+                                            <div *ngIf="flags.isWorldDataLoaded">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                    {{ data.deaths }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-bed fa-2x text-danger"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-3 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="small font-weight-bold text-success text-uppercase mb-1">Total Recovered</div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <div class="loading-text" *ngIf="!flags.isWorldDataLoaded">Loading...</div>
+                                            <div *ngIf="flags.isWorldDataLoaded">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                    {{ data.recovered }}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-child fa-2x text-success"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-3 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                        <div class="small font-weight-bold text-warning text-uppercase mb-1" *ngIf="isSelected == 'All Countries'">New Cases</div>
+                                        <div class="small font-weight-bold text-warning text-uppercase mb-1" *ngIf="isSelected != 'All Countries'">Active Cases</div>
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col-auto">
+                                                <div class="loading-text" *ngIf="!flags.isWorldDataLoaded">Loading...</div>
+                                                <div *ngIf="flags.isWorldDataLoaded">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ data.active }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-bell fa-2x text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+    <!-- Charts -->
+    <section id="highcharts">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-6">
+                <div class="chart">
+                    <h6 class="card-title josefin-font">OVERVIEW</h6>
+                    <div class="preloader" style="height: 350px;" [hidden]="flags.isWorldDataLoaded"></div>
+                    <div [hidden]="!flags.isWorldDataLoaded">
+                        <div id="pie-container"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-6">
+                <div class="chart">
+                    <h6 class="card-title josefin-font">LOCATION WITH HIGHEST CASES</h6>
+                    <div class="preloader" style="height: 350px;" [hidden]="flags.isWorldDataLoaded"></div>
+                    <div [hidden]="!flags.isWorldDataLoaded">
+                        <div id="bar-container"></div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </section>
+
+<!-- Error Handling -->
+<section class="container-fluid" *ngIf="flags.isError">
+    <div class="error-container">
+        <div class="row">
+            <div class="col-12 col-md-4 offset-md-4">
+                <img src="assets/images/bug2.png" class="img-fluid" alt="Image Not Found">
+                <div class="text-center josefin-font">
+                    <h2>A problem has occured!!</h2>
+                    <p>Sorry for the inconvenience. Please try again later</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

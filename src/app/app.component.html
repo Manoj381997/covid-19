@@ -1,0 +1,37 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+    <a class="navbar-brand nav-link" routerLink="/**">
+        <img class="img-fluid" alt="Responsive image" src="../assets/images/image.png" height="35" width="120" onContextMenu="return false;" />
+    </a>
+
+    <!-- Buttons for Toggle for Smartphones -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerList"
+        aria-controls="navbarTogglerList" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="fa fa-bars" aria-hidden="true" style="color: black;"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerList">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item text-center">
+                <a class="nav-link router" routerLink="/home" routerLinkActive="text-success">HOME <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link router" routerLink="/global" routerLinkActive="text-success">GLOBAL</a>
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link router" routerLink="/india" routerLinkActive="text-success">INDIA</a>
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link router" routerLink="/corona" routerLinkActive="text-success">CORONA</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+<!-- Footer -->
+
+<footer id="footer">
+    <div class="logo">
+        <img src="../assets/images/image.png" height="35" width="140" onContextMenu="return false;" />
+    </div>
+    <p>Copyright &copy; 2020 by <a> Manoj Kumar G </a></p>
+</footer>

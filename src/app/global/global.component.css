@@ -1,0 +1,67 @@
+.small {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 11px;
+}
+
+.loading-text {
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.chart-loading-text {
+    color: black; 
+    font-weight: bold; 
+    height: 350px; 
+    display: block; 
+    background-color: white;
+}
+ 
+#highcharts {
+    padding: 20px 0 30px 0;
+}
+
+#pie-container, #bar-container {
+    height: 350px;
+    display: block;
+    border-radius: 10px;
+}
+
+.chart {
+    padding: 8px;
+    margin: 8px 0;
+}
+
+.dropdowncontainer {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    padding: 20px 0 0 10px;
+    justify-content: space-between;
+}
+
+form {
+    margin: 0 3px 0 0;
+}
+
+.label {
+    margin: 0 0 0 6px;
+}
+
+@media only screen and (max-width:575px) {
+    .dropdowncontainer {
+        flex-direction: column-reverse;
+    }
+
+    .label {
+        margin: 15px 0 0 100px;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width:400px) {
+    .label {
+        margin: 15px 0 0 30px;
+        justify-content: center;
+    }
+}
