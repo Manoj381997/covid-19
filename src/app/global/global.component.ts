@@ -202,10 +202,10 @@ export class GlobalComponent implements OnInit {
     this.barChartOptions.series[4]['name'] = this.countriesData[4]['country_name'];
 
     for (let i = 1; i <= 5; i++) {
-      this.barChartOptions.series[i-1]['data'][0] = parseInt(this.countriesData[i]['cases'].replace(',',''));
-      this.barChartOptions.series[i-1]['data'][1] = parseInt(this.countriesData[i]['active_cases'].replace(',',''));
-      this.barChartOptions.series[i-1]['data'][2] = parseInt(this.countriesData[i]['deaths'].replace(',',''));
-      this.barChartOptions.series[i-1]['data'][3] = parseInt(this.countriesData[i]['total_recovered'].replace(',',''));
+      this.barChartOptions.series[i-1]['data'][0] = parseInt(this.countriesData[i-1]['cases'].replace(',',''));
+      this.barChartOptions.series[i-1]['data'][1] = parseInt(this.countriesData[i-1]['active_cases'].replace(',',''));
+      this.barChartOptions.series[i-1]['data'][2] = parseInt(this.countriesData[i-1]['deaths'].replace(',',''));
+      this.barChartOptions.series[i-1]['data'][3] = parseInt(this.countriesData[i-1]['total_recovered'].replace(',',''));
     }
     Highcharts.chart('bar-container', this.barChartOptions);
   }
