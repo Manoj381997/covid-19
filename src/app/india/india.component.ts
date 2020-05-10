@@ -226,10 +226,10 @@ export class IndiaComponent implements OnInit {
     this.barChartOptions.series[4]['name'] = this.data.stateList[5];
 
     for (let i = 1; i <= 5; i++) {
-      this.barChartOptions.series[i-1]['data'][0] = parseInt(this.statesData[this.data.stateList[i]]['confirmed']);
-      this.barChartOptions.series[i-1]['data'][1] = parseInt(this.statesData[this.data.stateList[i]]['active']);
-      this.barChartOptions.series[i-1]['data'][2] = parseInt(this.statesData[this.data.stateList[i]]['deaths']);
-      this.barChartOptions.series[i-1]['data'][3] = parseInt(this.statesData[this.data.stateList[i]]['recovered']);
+      this.barChartOptions.series[i-1]['data'][0] = parseInt(this.statesData[this.data.stateList[i]]['confirmed'].split(',').join(''));
+      this.barChartOptions.series[i-1]['data'][1] = parseInt(this.statesData[this.data.stateList[i]]['active'].split(',').join(''));
+      this.barChartOptions.series[i-1]['data'][2] = parseInt(this.statesData[this.data.stateList[i]]['deaths'].split(',').join(''));
+      this.barChartOptions.series[i-1]['data'][3] = parseInt(this.statesData[this.data.stateList[i]]['recovered'].split(',').join(''));
     }
     Highcharts.chart('bar-container', this.barChartOptions);
   }

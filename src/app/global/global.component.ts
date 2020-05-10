@@ -202,10 +202,10 @@ export class GlobalComponent implements OnInit {
     this.barChartOptions.series[4]['name'] = this.countriesData[4]['country_name'];
 
     for (let i = 1; i <= 5; i++) {
-      this.barChartOptions.series[i-1]['data'][0] = parseInt(this.countriesData[i-1]['cases'].replace(',',''));
-      this.barChartOptions.series[i-1]['data'][1] = parseInt(this.countriesData[i-1]['active_cases'].replace(',',''));
-      this.barChartOptions.series[i-1]['data'][2] = parseInt(this.countriesData[i-1]['deaths'].replace(',',''));
-      this.barChartOptions.series[i-1]['data'][3] = parseInt(this.countriesData[i-1]['total_recovered'].replace(',',''));
+      this.barChartOptions.series[i-1]['data'][0] = parseInt((this.countriesData[i-1]['cases']).split(',').join(''));
+      this.barChartOptions.series[i-1]['data'][1] = parseInt(this.countriesData[i-1]['active_cases'].split(',').join(''));
+      this.barChartOptions.series[i-1]['data'][2] = parseInt(this.countriesData[i-1]['deaths'].split(',').join(''));
+      this.barChartOptions.series[i-1]['data'][3] = parseInt(this.countriesData[i-1]['total_recovered'].split(',').join(''));
     }
     Highcharts.chart('bar-container', this.barChartOptions);
   }
@@ -235,15 +235,15 @@ export class GlobalComponent implements OnInit {
     if (this.isSelected == "All Countries"){
       this.pieChartOptions.series[0]['data'][0]['name'] = 'Total Cases';
       this.pieChartOptions.series[0]['data'][0]['color'] = 'rgb(82, 160, 238, 0.8)';
-      this.pieChartOptions.series[0]['data'][0].y = parseInt(this.worldData['world_total']['total_cases'].split(",").join(""));
+      this.pieChartOptions.series[0]['data'][0].y = parseInt(this.worldData['world_total']['total_cases'].split(',').join(''));
     }
     else {
       this.pieChartOptions.series[0]['data'][0]['name'] = 'Active Cases';
       this.pieChartOptions.series[0]['data'][0]['color'] = 'rgba(255, 215, 0, 0.7)';
-      this.pieChartOptions.series[0]['data'][0].y = parseInt(this.data.active.replace(',',''));
+      this.pieChartOptions.series[0]['data'][0].y = parseInt(this.data.active.split(',').join(''));
     }
-    this.pieChartOptions.series[0]['data'][1].y = parseInt(this.data.deaths.replace(',',''));
-    this.pieChartOptions.series[0]['data'][2].y = parseInt(this.data.recovered.replace(',','')); 
+    this.pieChartOptions.series[0]['data'][1].y = parseInt(this.data.deaths.split(',').join(''));
+    this.pieChartOptions.series[0]['data'][2].y = parseInt(this.data.recovered.split(',').join('')); 
     Highcharts.chart('pie-container', this.pieChartOptions);
   }
 
