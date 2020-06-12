@@ -1,6 +1,8 @@
 # Covid19 Tracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+A web application that keeps track of real-time spread of COVID-19 in India as well as across the world.
+This project was inspired from <strong>Rahul Prabhakar</strong> <em>https://rahulprabhakar.in/covid19-stats/</em>
+
 
 ## Development server
 
